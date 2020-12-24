@@ -22,6 +22,7 @@ alias v='vim'
 alias gs='git status'
 alias glg='git log --oneline'
 alias gpm='git push origin master'
+alias gp='git push'
 # git add all then commit, git add commit then commit
 gaac(){ git add . && git commit -m "$1"; }
 gac(){ git add "$1" && git commit -m "$2"; }
