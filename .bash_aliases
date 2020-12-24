@@ -15,7 +15,7 @@ alias l1=`ls -1` # list files on one line
 
 alias e='exit'
 alias c='clear'
-
+alias v='vim'
 
 
 ### git aliases & functions ###
@@ -25,3 +25,5 @@ alias gpm='git push origin master'
 # git add all then commit, git add commit then commit
 gaac(){ git add . && git commit -m "$1"; }
 gac(){ git add "$1" && git commit -m "$2"; }
+
+
