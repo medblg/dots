@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=NoCaps Please
+Comment=Nocaps to ctrl
+Exec=setxkbmap -option "ctrl:nocaps"
+StartupNotify=false
+Terminal=false
+Hidden=false
+Name[en_US]=nocaps.desktop
