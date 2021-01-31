@@ -27,4 +27,5 @@ alias gp='git push origin'"$1"
 gaac(){ git add . && git commit -m "$1"; }
 gac(){ git add "$1" && git commit -m "$2"; }
 
-
+# my new copy to clipboard
+alias ctc='xclip -sel clip'
