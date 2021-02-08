@@ -29,3 +29,5 @@ gac(){ git add "$1" && git commit -m "$2"; }
 
 # my new copy to clipboard
 alias ctc='xclip -sel clip'
+# invoke redshift with lat:lng
+alias rs='redshift -l 31.4349:-4.2316 &'

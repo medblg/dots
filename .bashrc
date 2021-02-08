@@ -53,3 +53,13 @@ cdl(){
 	cd .. 
     done 
 }
+
+## my read it while loop,
+rit(){
+while IFS= read line;
+    do
+        cmd="$2"
+        eval $cmd
+
+done < $1
+}
