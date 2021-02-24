@@ -19,6 +19,7 @@ alias v='vim'
 
 
 ### git aliases & functions ###
+alias gps='git pull;git status'
 alias gs='git status'
 alias glg='git log --oneline'
 alias gpm='git push origin master'
@@ -31,3 +32,21 @@ gac(){ git add "$1" && git commit -m "$2"; }
 alias ctc='xclip -sel clip'
 # invoke redshift with lat:lng
 alias rs='redshift -l 31.4349:-4.2316 &'
+
+## change directory level
+cdl(){ 
+    for ((i=1;i<="$1";i++));do 
+      cd .. 
+    done 
+}
+
+## my read it while loop,
+## rit file.txt 'my cmds that should be inside while loop'
+rit(){
+while IFS= read line;
+    do
+        cmd="$2"
+        eval $cmd
+
+done < $1
+}

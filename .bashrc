@@ -1,19 +1,17 @@
 # content to be appended to ~/.bashrc
-
+## use my customized PS1
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[1;33m\]\w\[\033[00m\]\n\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
 HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1000 #history length
+HISTFILESIZE=2000 #in bash
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-
+shopt -s checkwinsize #check window size
 
 # sourcing my dots aliases
 if [ -f ~/.config/dots/.bash_aliases ]; then
@@ -44,22 +42,4 @@ fi
 # Save current working dir
 #PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 
-[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
-
-
-## change directory level
-cdl(){ 
-    for ((i=1;i<="$1";i++));do 
-	cd .. 
-    done 
-}
-
-## my read it while loop,
-rit(){
-while IFS= read line;
-    do
-        cmd="$2"
-        eval $cmd
-
-done < $1
-}
+#[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
