@@ -59,3 +59,4 @@ dirf(){
       touch -- "$p"
   done
 }
+export -f dirf
