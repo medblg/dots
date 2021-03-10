@@ -50,3 +50,12 @@ while IFS= read line;
 
 done < $1
 }
+#mkdir and touch file in one shot
+dirf(){ 
+#for p in "$@"; do
+  for p do
+    _dir="$(dirname -- "$p")"
+    mkdir -p -- "$_dir" &&
+      touch -- "$p"
+  done
+}
