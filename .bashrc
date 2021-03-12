@@ -43,3 +43,7 @@ fi
 #PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 
 #[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
+
+#implement safe pasting in terminal
+set -o vi
+VISUAL='/usr/bin/vim'
