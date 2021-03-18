@@ -1,6 +1,7 @@
 " set cursorline
 " set mouse=a
 " syntax highlighter vim-polyglot
+set encoding=utf-8
 syntax on
 set mouse+=a
 set ignorecase
@@ -22,16 +23,19 @@ let @+=@"
 let @*=@"
 noremap Y "+y
 noremap P "+p
-
+ 
 " declare list of plugins
 " Plug 'githubuser/plugin' 
 " Plug 'morhetz/gruvbox'
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " nocompatible from vim-polyglot troubleshooting
@@ -59,3 +63,10 @@ colorscheme archman
 " insert line without leaving normal mode
 nnoremap on o<Esc>
 nnoremap On O<Esc>
+" just Explorer with current working dir
+set autochdir
+map zz :e.<CR>
+
+" going throw buffers
+" let vim_markdown_preview_github=1
+let vim_markdown_preview_pandoc=1
