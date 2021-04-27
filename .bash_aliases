@@ -12,6 +12,7 @@ alias lX='ls -ahX' # sort alpha extension
 alias lr='ls -ahr' # reverse ordre while sorting
 alias lI='ls -alhI' # list and ignore after I, to add more files add -I..
 alias l1=`ls -1` # list files on one line
+alias lst='ls -1t | head -1'
 
 alias e='exit'
 alias c='clear'
@@ -60,3 +61,7 @@ dirf(){
   done
 }
 export -f dirf
+
+#lst(){
+# ls -1t | head -1 | xargs -I% "$1" %
+#}
