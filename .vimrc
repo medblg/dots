@@ -19,6 +19,7 @@ set softtabstop=4
 inoremap kj <Esc> 
 cnoremap kj <Esc>
 " copy from register " to +(clipboard)
+" need to enable +clipboard, install vim-gtk3(gvim)
 let @+=@"
 let @*=@"
 noremap Y "+y
@@ -28,23 +29,34 @@ noremap P "+p
 " Plug 'githubuser/plugin' 
 " Plug 'morhetz/gruvbox'
 
+" automate installation of vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
-Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
-Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'tpope/vim-sensible'
+" Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+" Plug 'sheerun/vim-polyglot'
+" Plug 'vim-airline/vim-airline'
+" Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'morhetz/gruvbox'
 call plug#end()
+
+" https://github.com/morhetz/gruvbox/wiki/Installation
+autocmd vimenter * ++nested colorscheme gruvbox
+
 
 " nocompatible from vim-polyglot troubleshooting
 " set nocompatible
 
 " Important!!
-if has('termguicolors')
-    set termguicolors
-endif
+"if has('termguicolors')
+"    set termguicolors
+"endif
 
 " For dark version.
 set background=dark
@@ -52,13 +64,13 @@ set background=dark
 " Set contrast.
 " This configuration option should be placed before `colorscheme gruvbox-material`.
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_material_background = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
 
 " colorscheme gruvbox-material
-let g:airline_theme = 'gruvbox_material'
-let g:airline#extensions#tabline#enabled = 1
-colorscheme archman
+"let g:airline_theme = 'gruvbox_material'
+"let g:airline#extensions#tabline#enabled = 1
+"colorscheme archman
 
 " insert line without leaving normal mode
 nnoremap on o<Esc>
@@ -69,4 +81,11 @@ map zz :e.<CR>
 
 " going throw buffers
 " let vim_markdown_preview_github=1
-let vim_markdown_preview_pandoc=1
+"let vim_markdown_preview_pandoc=1
+
+" setting powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set laststatus=2
