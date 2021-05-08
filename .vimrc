@@ -12,6 +12,8 @@ set relativenumber
 set autoindent
 set smartindent
 set background=dark
+" use the already opened window instead of creating another
+set switchbuf=useopen
 " this is a comment
 " for making indentiation with tabs and spaces with 4 char
 set shiftwidth=4
