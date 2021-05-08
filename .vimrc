@@ -18,6 +18,18 @@ set shiftwidth=4
 set softtabstop=4
 inoremap kj <Esc> 
 cnoremap kj <Esc>
+
+" test the new remapping, maybe it will be my default instead of jk
+nnoremap <C-I> <C-I>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+inoremap <Tab> <Esc>`^
+"
+" buffers
+map <C-J> :bnext<CR>
+map <C-K> :bprev<CR>
+nnoremap <Leader>b :ls<CR>:b<Space>
+
 " copy from register " to +(clipboard)
 " need to enable +clipboard, install vim-gtk3(gvim)
 let @+=@"
