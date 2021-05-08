@@ -60,7 +60,8 @@ dirf(){
       touch -- "$p"
   done
 }
-export -f dirf
+[ "cshell" = "bash" ] && export -f dirf
+#export -f -> doesn't work for zsh
 
 #lst(){
 # ls -1t | head -1 | xargs -I% "$1" %
