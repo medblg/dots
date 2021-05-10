@@ -13,10 +13,15 @@ alias lr='ls -ahr' # reverse ordre while sorting
 alias lI='ls -alhI' # list and ignore after I, to add more files add -I..
 alias l1=`ls -1` # list files on one line
 alias lst='ls -1t | head -1'
+alias lh="ls -at1 | egrep '^\.+'"
+alias sz="source $ZDOTDIR/.zshrc"
 
+
+alias rmd='rm -rf'
 alias e='exit'
 alias c='clear'
-alias v='vim'
+#alias v='stty stop '' -ixoff; vim' # added so not to conflict c-s in vim
+alias v='vim' # added so not to conflict c-s in vim
 
 
 ### git aliases & functions ###
@@ -66,3 +71,10 @@ dirf(){
 #lst(){
 # ls -1t | head -1 | xargs -I% "$1" %
 #}
+
+#based on https://github.com/ohmyzsh/ohmyzsh/issues/6723
+#unalias lsy
+lsy(){
+    #me trying to list only symb links
+    ls -la | grep '\->' | awk '{print $9,$10,$NF}' 
+}
