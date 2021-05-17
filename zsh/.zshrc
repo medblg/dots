@@ -116,3 +116,6 @@ fi
 [ -x "$(command -v tmux)" ] \
 	&& [ -z "${TMUX}" ] \
 	&& (tmux) > /dev/null 2>&1
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
