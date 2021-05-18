@@ -1,4 +1,5 @@
 # my bash aliases, just to clean out the ~/.bashrc file !
+export cshell=$(ps -o comm= -p $$)
 
 ### ls ###
 alias ll='ls -lFh'
