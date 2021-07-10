@@ -85,7 +85,11 @@ nnoremap On O<Esc>
 set autochdir
 map zz :e.<CR>
 
+" execute bash
 map xx :w<CR>:!./%<CR>
+" execute python3
+imap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
+nmap <F5> <Esc>:w<CR>:!clear;python3 %<CR>
 
 " setting powerline
 python3 from powerline.vim import setup as powerline_setup
