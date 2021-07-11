@@ -1,10 +1,28 @@
 # content to be appended to ~/.bashrc
+
+#force_color_prompt=yes
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#	# We have color support; assume it's compliant with Ecma-48
+#	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#	# a case would tend to support setf rather than setaf.)
+#	color_prompt=yes
+#    else
+#	color_prompt=
+#    fi
+#fi
+
+eval "$(dircolors -b ~/.dircolors)"
 ## use my customized PS1
+color_prompt=yes
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[1;33m\]\w\[\033[00m\]\n\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
+unset color_prompt force_color_prompt
+
 HISTCONTROL=ignoreboth
 shopt -s histappend
 
@@ -34,16 +52,31 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 #hacky way to get terminal open on new dir, on st (beside the patch newterm)
 # Commands to be executed before the prompt is displayed
 # Save current working dir
 #PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 
-#[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
-
 #implement safe pasting in terminal
 set -o vi
 VISUAL='/usr/bin/vim'
+
+# Preferred editor for local and remote sessions
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
+
+# start tmux on bash session
+#[[ $TERM != "screen" ]] && exec tmux #broke terminal !!
+[ -x "$(command -v tmux)" ] \
+	&& [ -z "${TMUX}" ] \
+	&& (tmux) > /dev/null 2>&1
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# dircolors
+eval "$(dircolors ~/.dircolors)"
+. "$HOME/.cargo/env"
