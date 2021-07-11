@@ -1,18 +1,4 @@
 # content to be appended to ~/.bashrc
-
-#force_color_prompt=yes
-#if [ -n "$force_color_prompt" ]; then
-#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-#	# We have color support; assume it's compliant with Ecma-48
-#	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-#	# a case would tend to support setf rather than setaf.)
-#	color_prompt=yes
-#    else
-#	color_prompt=
-#    fi
-#fi
-
-eval "$(dircolors -b ~/.dircolors)"
 ## use my customized PS1
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
@@ -65,7 +51,7 @@ VISUAL='/usr/bin/vim'
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
 
 # start tmux on bash session
@@ -78,5 +64,5 @@ VISUAL='/usr/bin/vim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # dircolors
-eval "$(dircolors ~/.dircolors)"
-. "$HOME/.cargo/env"
+eval "$(dircolors -b ~/.dircolors)"
+#. "$HOME/.cargo/env"
