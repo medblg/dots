@@ -2,6 +2,8 @@
 export cshell=$(ps -o comm= -p $$)
 
 ### ls ###
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls -lFh'
 alias lt='ls -lth' # sort by modification, newest 1st
