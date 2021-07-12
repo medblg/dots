@@ -5,7 +5,7 @@ export cshell=$(ps -o comm= -p $$)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias ls='ls --color=auto'
-alias laa='ls -a ~/ | grep '^\.' | tail +3' #only hidden files
+alias laa='ls -a | grep "^\." | tail +3' #only hidden files
 alias ll='ls -lFh'
 alias lt='ls -lth' # sort by modification, newest 1st
 alias la='ls -Ah'
