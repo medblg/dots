@@ -66,3 +66,6 @@ VISUAL='/usr/bin/vim'
 # dircolors
 eval "$(dircolors -b ~/.dircolors)"
 #. "$HOME/.cargo/env"
+
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
+
