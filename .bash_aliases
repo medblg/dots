@@ -4,6 +4,8 @@ export cshell=$(ps -o comm= -p $$)
 ### ls ###
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 alias ls='ls --color=auto'
 alias laa='ls -a | grep "^\." | tail +3' #only hidden files
 alias ll='ls -lFh'
