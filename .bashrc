@@ -2,7 +2,9 @@
 
 ##### global vars #####
 ######################
-export PATH="$PATH:~/bin_links"
+[[ -f ~/.env_type ]] && env_type=$(cat ~/.env_type) && [[ $env_type == "prod" ]] && export PATH="$PATH:$tls/bin_links" || export PATH="$PATH:~/bin_links"
+
+#export PATH="$PATH:~/bin_links"
 export PATH="$PATH:/usr/lib/dart/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export cshell=$(ps -o comm= -p $$)
