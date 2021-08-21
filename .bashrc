@@ -6,6 +6,7 @@
 
 #export PATH="$PATH:~/bin_links"
 export PATH="$PATH:/usr/lib/dart/bin"
+export PATH="$PATH:~/.local/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export cshell=$(ps -o comm= -p $$)
 
