@@ -28,8 +28,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f ~/.config/fzf/fzf-bash-completion.sh ] && source ~/.config/fzf/fzf-bash-completion.sh
-bind -x '"\t": fzf_bash_completion'
+[ -f ~/.config/fzf/fzf-bash-completion.sh ] && source ~/.config/fzf/fzf-bash-completion.sh && bind -x '"\t": fzf_bash_completion'
 
 
 ##### PS1 and termninal things #####
@@ -69,11 +68,6 @@ fi
 
 ##### tmux config #####
 ######################
-## start tmux on bash session
-#[[ $TERM != "screen" ]] && exec tmux #broke terminal !!
-[ -x "$(command -v tmux)" ] \
-	&& [ -z "${TMUX}" ] \
-	&& (tmux) > /dev/null 2>&1
 
 ## start ssh tmux session
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then                                                                                            
@@ -81,5 +75,5 @@ if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
 fi
 
 ##### misc ######
-. "$HOME/.cargo/env"
-[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
+#. "$HOME/.cargo/env"
+#[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
